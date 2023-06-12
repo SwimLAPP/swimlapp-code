@@ -1,0 +1,26 @@
+<h1>Pools in our DB:</h1>
+
+{{#each pools}}
+<section class="pool-summary">
+    <h2>{{this.name}}</h2>
+    <p>
+        Location: {{this.location}} <br />
+        Poolsize: {{this.poolSize}} <br />
+        Description: {{this.description}} <br />
+        Rating: {{this.rating}} <br />
+
+<br>
+<br>
+<br>
+
+
+        <a href="/pools/{{this._id}}">More details</a>
+        <a href="/pools/{{this._id}}/edit">Edit</a>
+    </p>
+
+    <form action="/pools/{{_id}}/delete" method="POST">
+        <button>Delete</button>
+    </form>
+
+</section>
+{{/each}}

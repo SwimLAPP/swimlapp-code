@@ -11,8 +11,10 @@ const poolSchema = new Schema(
       postalCode: String,
       city: String,
     },
-    is25m: Boolean,
-    is50m: Boolean,
+    poolSize: {
+      type: String,
+      enum: ["25m", "50m", "both"],
+    },
     description: String,
     rating: Number,
   },

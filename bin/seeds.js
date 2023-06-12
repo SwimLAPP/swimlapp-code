@@ -12,8 +12,7 @@ const pools = [
       postalCode: "14770",
       city: "Brandenburg an der Havel",
     },
-    is25m: "yes",
-    is50m: "yes",
+    poolSize: "both",
     description:
       "Here you can swim in a 25m and 50m pool or use other wellness services.",
     rating: 8.8,
@@ -26,8 +25,7 @@ const pools = [
       postalCode: "10407",
       city: "Berlin - Prenzlauer Berg",
     },
-    is25m: "yes",
-    is50m: "yes",
+    poolSize: "both",
     description:
       "Olympic, kids' & diving pools are all available at this swimming complex with lessons for all.",
     rating: 8.8,
@@ -41,7 +39,7 @@ mongoose
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
     );
 
-    // return Pool.deleteMany({}); //WARNING: this will delete all books in your DB !!
+    return Pool.deleteMany({}); //WARNING: this will delete all books in your DB !!
   })
   .then((response) => {
     console.log(response);
