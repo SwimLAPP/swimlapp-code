@@ -24,8 +24,6 @@ const poolSchema = new Schema(
   }
 );
 
-// 'type: Schema.Types.ObjectId, ref: 'Celebrity'' will create a relation between the `Movie` model and the `Celebrity` model
-
 const Pool = model("Pool", poolSchema);
 
 module.exports = Pool;

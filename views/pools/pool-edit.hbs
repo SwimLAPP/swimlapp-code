@@ -1,16 +1,16 @@
-<h2>Edit the pool: {{pool.title}}</h2>
+<h2>Edit the pool: {{onePool.name}}</h2>
 
-<form action="/pools/{{pool._id}}/edit" method="post">
+<form action="/pools/{{onePool._id}}/edit" method="post">
     <label> Name:
-        <input type="text" name="name" value="{{pool.title}}" />
+        <input type="text" name="name" value="{{onePool.name}}" />
     </label>
 
     <label> Description:
-        <textarea name="description" cols="30" rows="4">{{pool.description}}</textarea>
+        <textarea name="description" cols="30" rows="4">{{onePool.description}}</textarea>
     </label>
 
     <label> Rate:
-        <input type="number" name="rating" min="1" max="10" value="{{pool.rating}}" />
+        <input type="number" name="rating" min="1" max="10" value="{{onePool.rating}}" />
     </label>
 
     <button>Save changes</button>

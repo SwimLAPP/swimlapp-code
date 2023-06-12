@@ -1,10 +1,10 @@
 <h1>Pools in our DB:</h1>
 
-{{#each pools}}
+{{#each allPools}}
 <section class="pool-summary">
     <h2>{{this.name}}</h2>
     <p>
-        Location: {{this.location}} <br />
+        Location: {{this.location.address}}, {{this.location.postalCode}}, {{this.location.city}} <br />
         Poolsize: {{this.poolSize}} <br />
         Description: {{this.description}} <br />
         Rating: {{this.rating}} <br />

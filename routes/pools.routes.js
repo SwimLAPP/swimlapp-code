@@ -34,26 +34,26 @@ router.post("/create", (req, res, next) => {
     .then((name, location, poolSize, description, rating) =>
       res.redirect("/pools")
     )
-    .catch((err) => res.render("pool-create.hbs"));
+    .catch((err) => res.render("pools/pool-create.hbs"));
   next(err);
 });
 
 // ***** (R)EAD ROUTES *****
 
 // GET '/pools' route to show all pools in a list
-router.get("/pools", (req, res, next) => {
+router.get("/", (req, res, next) => {
   Pool.find()
-    .then((allPools) => res.render("pools-list.hbs", { allPools }))
+    .then((allPools) => res.render("pools/pool-list.hbs", { allPools }))
     .catch((err) => next(err));
 });
 
 // GET '/pools/:id' route to show details of a specific movie
-router.get("/pools/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   const { id } = req.params;
 
   Pool.findById(id)
 
-    .then((onePool) => res.render("/pool-details.hbs", { onePool }))
+    .then((onePool) => res.render("pools/pool-details.hbs", { onePool }))
     .catch((err) => next(err));
 });
 
@@ -65,19 +65,18 @@ router.get("/:id/edit", (req, res, next) => {
 
   Pool.findById(id)
     .then((onePool) => {
-      // before rendering the edit form with the Pool info, we make a second mongoose call to get also all celebrities.
-      res.render("/pool-edit.hbs", { onePool });
+      res.render("pools/pool-edit.hbs", { onePool });
     })
     .catch((err) => next(err));
 });
 
-// POST '/movies/:id/edit' route to edit the movie
+// POST '/pools/:id/edit' route to edit the movie
 router.post("/:id/edit", (req, res, next) => {
   const { id } = req.params;
   const { name, location, poolSize, description, rating } = req.body;
 
   Pool.findByIdAndUpdate(id, { name, location, poolSize, description, rating })
-    .then(() => res.redirect(`${id}`))
+    .then(() => res.redirect(`/pools/${id}`))
     .catch((err) => next(err));
 });
 
@@ -88,7 +87,7 @@ router.post("/:id/delete", (req, res, next) => {
   const { id } = req.params;
 
   Pool.findByIdAndDelete(id)
-    .then(() => res.redirect("/"))
+    .then(() => res.redirect("/pools"))
     .catch((err) => next(err));
 });
 

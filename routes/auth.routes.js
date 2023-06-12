@@ -5,11 +5,12 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
+const User = require("../models/User.model");
+
 // How many rounds should bcrypt run the salt (default - 10 rounds)
 const saltRounds = 10;
 
 // Require the User model in order to interact with the database
-const User = require("../models/User.model");
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -22,21 +23,21 @@ router.get("/signup", isLoggedOut, (req, res) => {
 
 // POST /auth/signup
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, email, password } = req.body;
+  const { email, password } = req.body;
 
-  // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
+  // Check that email and password are provided
+  if (!email === "" || !password === "") {
     res.status(400).render("auth/signup", {
       errorMessage:
-        "All fields are mandatory. Please provide your username, email and password.",
+        "All fields are mandatory. Please provide your email and password.",
     });
 
     return;
   }
 
-  if (password.length < 6) {
+  if (password.length < 8) {
     res.status(400).render("auth/signup", {
-      errorMessage: "Your password needs to be at least 6 characters long.",
+      errorMessage: "Your password needs to be at least 8 characters long.",
     });
 
     return;
@@ -61,7 +62,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     .then((salt) => bcrypt.hash(password, salt))
     .then((hashedPassword) => {
       // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword });
+      return User.create({ email, password: hashedPassword });
     })
     .then((user) => {
       res.redirect("/auth/login");
@@ -72,7 +73,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
       } else if (error.code === 11000) {
         res.status(500).render("auth/signup", {
           errorMessage:
-            "Username and email need to be unique. Provide a valid username or email.",
+            "The email needs to be unique. Provide a valid email address.",
         });
       } else {
         next(error);
@@ -87,13 +88,13 @@ router.get("/login", isLoggedOut, (req, res) => {
 
 // POST /auth/login
 router.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, email, password } = req.body;
+  const {email, password } = req.body;
 
-  // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
+  // Check that email, and password are provided
+  if (email === "" || password === "") {
     res.status(400).render("auth/login", {
       errorMessage:
-        "All fields are mandatory. Please provide username, email and password.",
+        "All fields are mandatory. Please provide an email address and password.",
     });
 
     return;
@@ -101,9 +102,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
   // Here we use the same logic as above
   // - either length based parameters or we check the strength of a password
-  if (password.length < 6) {
+  if (password.length < 8) {
     return res.status(400).render("auth/login", {
-      errorMessage: "Your password needs to be at least 6 characters long.",
+      errorMessage: "Your password needs to be at least 8 characters long.",
     });
   }
 
@@ -148,7 +149,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
       res.status(500).render("auth/logout", { errorMessage: err.message });
       return;
     }
-
+    res.clearCookie("connect.sid")
     res.redirect("/");
   });
 });
