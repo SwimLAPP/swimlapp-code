@@ -32,8 +32,8 @@ app.use("/auth", authRoutes);
 
 // MY POOL ROUTES HEREeeeeeeeeee
 
-const authRoutes = require("./routes/pools.routes");
-app.use("/pools", authRoutes);
+const poolRoutes = require("./routes/pools.routes");
+app.use("/pools", poolRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

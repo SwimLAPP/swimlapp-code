@@ -1,0 +1,17 @@
+<h2>Edit the pool: {{pool.title}}</h2>
+
+<form action="/pools/{{pool._id}}/edit" method="post">
+    <label> Name:
+        <input type="text" name="name" value="{{pool.title}}" />
+    </label>
+
+    <label> Description:
+        <textarea name="description" cols="30" rows="4">{{pool.description}}</textarea>
+    </label>
+
+    <label> Rate:
+        <input type="number" name="rating" min="1" max="10" value="{{pool.rating}}" />
+    </label>
+
+    <button>Save changes</button>
+</form>
