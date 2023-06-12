@@ -1,0 +1,17 @@
+<h2>Add Your Pool</h2>
+
+<form method="post" action="/pools/create">
+    <label> Name:
+        <input type="text" name="title" />
+{{!-- add location --}}
+
+        <label> Description:
+            <textarea name="description" cols="30" rows="4"> </textarea>
+        </label>
+
+        <label> Rating:
+            <input type="number" name="rating" min="1" max="10" />
+        </label>
+
+        <button type="submit"> Create </button>
+</form>
