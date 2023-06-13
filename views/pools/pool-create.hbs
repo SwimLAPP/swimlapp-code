@@ -7,18 +7,18 @@
         <br>
 {{!-- add location --}}
         <label> Address:
-            <input type="text" name="address" />
+            <input type="text" name="address"/>
         </label>
         <label> Post Code: 
             <input type="text" name="postalCode" />
         </label>
         <label> City: 
-            <input type="text" name="city" />
+            <input type="text" name="city" required />
         </label>
         <br>
 
-        <label for="pools">Available pool size </label>
-        <select name="poolSize" id="pools">
+        <label for="pools">Available pool size (required)</label>
+        <select name="poolSize" id="pools" required>
             <option value="25m">25m</option>
             <option value="50m">50m</option>
             <option value="both">Both 25m and 50m</option>
