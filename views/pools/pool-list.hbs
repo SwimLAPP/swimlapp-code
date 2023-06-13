@@ -1,23 +1,29 @@
-<h1>Swimming Pools:</h1>
+<h1>All Our Swimming Pools</h1>
 
 {{#each allPools}}
 <section class="pool-summary">
     <h2>{{this.name}}</h2>
     <p>
         Location: {{this.location.address}}, {{this.location.postalCode}}, {{this.location.city}} <br />
-        Poolsize: {{this.poolSize}} <br />
+        Pool size: {{this.poolSize}} <br />
         Description: {{this.description}} <br />
         Rating: {{this.rating}} <br />
 
-<br>
+
 
         <a href="/pools/{{this._id}}">More details</a>
+        <br>
         <a href="/pools/{{this._id}}/edit">Edit</a>
+        <br>
+        <a href="/pools/{{this._id}}/delete">Delete</a>
     </p>
 
-    <form action="/pools/{{_id}}/delete" method="POST">
-        <button>Delete</button>
-    </form>
+    {{!-- <form action="/pools/{{_id}}/delete" method="POST">
+        <button>Delete</button> --}}
+    {{!-- </form> --}}
 
 </section>
 {{/each}}
+<hr>
+
+<h2>Happy Swimming!</h2>

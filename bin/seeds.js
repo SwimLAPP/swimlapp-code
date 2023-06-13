@@ -14,7 +14,7 @@ const pools = [
     },
     poolSize: "both",
     description:
-      "Here you can swim in a 25m and 50m pool or use other wellness services.",
+      "Here you can swim in a 25m and 50m pool. Wellness services available",
     rating: 8.8,
   },
 
@@ -69,7 +69,6 @@ const pools = [
       "La piscine olympique Aquasud à Agen est équipée d’un bassin de 50 m, d’un bassin de 25 m, d’une aire de jeux aqualudique pour les enfants, d’espaces verts, d’une zone pique-nique et de tables de ping-pong.",
     rating: 4.9,
   },
-
 ];
 
 mongoose

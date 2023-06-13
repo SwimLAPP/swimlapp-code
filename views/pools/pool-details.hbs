@@ -1,22 +1,27 @@
-<h1>{{name}}</h1>
+<h2>Sport Pool Details and Reviews</h2>
 
-<hr />
+{{!-- <h1>{{name}}</h1>
 
-<h3>Name:</h3>
-<p>{{onePool.name}}</p>
+<hr /> --}}
 
-<h3>Location</h3>
-<p>{{onePool.location.address}}, {{onePool.location.postalCode}} {{onePool.location.city}}</p>
+<p>Name:</p>{{onePool.name}}
 
-<h3>Pool Size:</h3>
+<h4>Address:</h4>
+<p>{{onePool.location.address}}</p>
+    <h4>Postal Code</h4>
+    <p>{{onePool.location.postalCode}}</p>
+    <h4>City or Town:</h4>
+   <p>{{onePool.location.city}}</p> 
+
+<h4>Pool Size:</h4>
 <p>{{onePool.poolSize}}</p>
 
-<h3>Description:</h3>
+<h4>Description:</h4>
 <p>{{onePool.description}}</p>
 
-<h3>Rating:</h3>
+<h4>Rating:</h4>
 <p>{{onePool.rating}}</p>
 
 <hr />
 
-<a href="/pools">Back</a>
+<a href="/pools">Back Sports Pools List</a>
