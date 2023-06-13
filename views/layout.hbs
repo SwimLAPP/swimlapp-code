@@ -17,8 +17,8 @@
   <a href="/auth/login">Login</a> --}}
  
  
- {{#if user}}
-            <form id="logout-form" method="POST" action="/logout" >
+ {{#if currentUser}}
+            <form id="logout-form" method="POST" action="/auth/logout" >
                <button>Logout</button>
             </form>
          {{else}}

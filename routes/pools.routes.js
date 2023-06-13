@@ -18,7 +18,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // ***** CREATE ROUTES *****
 
-// GET '/pools/create' route to show movie creation form to the user
+// GET '/pools/create' route to show pool creation form to the user
 router.get("/create", (req, res, next) => {
   // to render the create form we fetch all poolss from the DB, so we can make the user select which celebrities will be in the cast of the pool
   Pool.find()
@@ -31,11 +31,11 @@ router.post("/create", (req, res, next) => {
   const { name, location, poolSize, description, rating } = req.body;
 
   Pool.create({ name, location, poolSize, description, rating })
-    .then((name, location, poolSize, description, rating) =>
+    .then(() =>
       res.redirect("/pools")
     )
     .catch((err) => res.render("pools/pool-create.hbs"));
-  next(err);
+  next();
 });
 
 // ***** (R)EAD ROUTES *****

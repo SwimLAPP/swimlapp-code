@@ -23,6 +23,11 @@ const projectName = "swimlapp-code";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
+app.use((req, res, next) => {
+    app.locals.currentUser = req.session.currentUser
+    next()
+})
+
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);

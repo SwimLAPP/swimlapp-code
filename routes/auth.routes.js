@@ -18,6 +18,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET /auth/signup
 router.get("/signup", isLoggedOut, (req, res) => {
+  console.log('auth get')
   res.render("auth/signup");
 });
 
@@ -26,10 +27,10 @@ router.post("/signup", isLoggedOut, (req, res) => {
   const { email, password } = req.body;
 
   // Check that email and password are provided
-  if (!email === "" || !password === "") {
+  if (email === "" || password === "") {
     res.status(400).render("auth/signup", {
       errorMessage:
-        "All fields are mandatory. Please provide your email and password.",
+        "All fields are mandatory. Please provide your email address and password.",
     });
 
     return;
@@ -87,48 +88,71 @@ router.get("/login", isLoggedOut, (req, res) => {
 });
 
 // POST /auth/login
-router.post("/login", (req, res, next) => {
-  const { email, password } = req.body;
+router.post("/login", isLoggedOut, (req, res, next) => {
+  const {email, password } = req.body;
 
-  if (email === '' || password === '') {
-      res.status(400).render('auth/login', { errorMessage: 'Please enter both, email and password to login.' });
-      return;
+  // Check that email, and password are provided
+  if (email === "" || password === "") {
+    res.status(400).render("auth/login", {
+      errorMessage:
+        "All fields are mandatory. Please provide an email address and password.",
+    });
+
+    return;
   }
 
-  User.findOne({email: email})
-      .then( user => {
-          if (!user) {
-              //user doesn't exist (mongoose returns "null")
-              res.status(400).render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
-              return;
-          } else if (bcryptjs.compareSync(password, user.passwordHash)){
-              //login successful
-              req.session.currentUser = user; // store info in req.session (will be available in further requests)
-              res.render("auth/user-profile", {userDetails: user});
-          } else {
-              //login failed
-              res.status(400).render('auth/login', { errorMessage: 'Incorrect credentials.' });
+  // Here we use the same logic as above
+  // - either length based parameters or we check the strength of a password
+  if (password.length < 8) {
+    return res.status(400).render("auth/login", {
+      errorMessage: "Your password needs to be at least 8 characters long.",
+    });
+  }
+
+  // Search the database for a user with the email submitted in the form
+  User.findOne({ email })
+    .then((user) => {
+      // If the user isn't found, send an error message that user provided wrong credentials
+      if (!user) {
+        res
+          .status(400)
+          .render("auth/login", { errorMessage: "Wrong credentials." });
+        return;
+      }
+
+      // If user is found based on the username, check if the in putted password matches the one saved in the database
+      bcrypt
+        .compare(password, user.password)
+        .then((isSamePassword) => {
+          if (!isSamePassword) {
+            res
+              .status(400)
+              .render("auth/login", { errorMessage: "Wrong credentials." });
+            return;
           }
-      })
-      .catch(error => {
-          console.log("error trying to login...", error);
-          next(error);
-      });
 
+          // Add the user object to the session object
+          req.session.currentUser = user.toObject();
+          // Remove the password field
+          delete req.session.currentUser.password;
+
+          res.redirect("/");
+        })
+        .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
+    })
+    .catch((err) => next(err));
 });
 
-router.post("/logout", (req, res, next) => {
-  req.session.destroy(err => {
-      if (err) next(err);
-      res.redirect('/'); // if logout successful, redirect to homepage
+// GET /auth/logout
+router.post("/logout", isLoggedIn, (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      res.status(500).render("auth/logout", { errorMessage: err.message });
+      return;
+    }
+    // res.clearCookie("connect.sid")
+    res.redirect("/");
   });
-})
-
-//GET user-profile
-router.get('/user-profile', (req, res) => {
-  res.render("auth/user-profile", {userDetails: req.session.currentUser});
 });
-
 
 module.exports = router;
-
