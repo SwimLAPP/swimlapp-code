@@ -30,6 +30,46 @@ const pools = [
       "Olympic, kids' & diving pools are all available at this swimming complex with lessons for all.",
     rating: 8.8,
   },
+
+  {
+    name: "Olympiapark Schwimmstadion Berlin",
+    location: {
+      address: "Olympischer Platz 3",
+      postalCode: "14053",
+      city: "Berlin - Charlottenburg",
+    },
+    poolSize: "50m",
+    description:
+      "Diving facility with 1 and 3 m springboards and 5, 7.5 and 10 m platforms",
+    rating: 7,
+  },
+
+  {
+    name: "Bäderland swimming pool Island Park",
+    location: {
+      address: "Kurt-Emmerich-Platz 12",
+      postalCode: "21109",
+      city: "Hamburg",
+    },
+    poolSize: "50m",
+    description:
+      "The Inselpark swimming pool is particularly inviting with its modern ambience. The new building from 2013 is located in the middle of the island park created for the international garden show and opens up a view of well-kept green areas through a generous glass front. The 25-meter multi-purpose pool behind it offers plenty of space for sporty swimming. The courses offered in the course pool, which is equipped with massage jets, ensure even more exercise. Even the little ones can let off steam in the children's pool. A highlight in summer is the south facade that can be opened. It brings an outdoor pool feeling into the bathroom and offers access to the outdoor area with terrace.",
+    rating: 8.9,
+  },
+
+  {
+    name: "Piscine Aquasud",
+    location: {
+      address: "Avenue d'Italie",
+      postalCode: "47000",
+      city: "Agen",
+    },
+    poolSize: "both",
+    description:
+      "La piscine olympique Aquasud à Agen est équipée d’un bassin de 50 m, d’un bassin de 25 m, d’une aire de jeux aqualudique pour les enfants, d’espaces verts, d’une zone pique-nique et de tables de ping-pong.",
+    rating: 4.9,
+  },
+
 ];
 
 mongoose
