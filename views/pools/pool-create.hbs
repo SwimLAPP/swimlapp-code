@@ -2,23 +2,26 @@
 
 <form method="post" action="/pools/create">
     <label> Name:
-        <input type="text" name="name" />
+        <input type="text" name="name" required />
+    </label>
         <br>
 {{!-- add location --}}
         <label> Address:
-            <input type="text" name="location.address" />
-            <input type="text" name="location.postalCode" />
-            <input type="text" name="location.city" />
+            <input type="text" name="address" />
+        </label>
+        <label> Post Code: 
+            <input type="text" name="postalCode" />
+        </label>
+        <label> City: 
+            <input type="text" name="city" />
+        </label>
         <br>
+
         <label for="pools">Available pool size </label>
-        <select name"poolSize" id="pools">
-    
-            {{!-- what the user sees between the tags is the name of the pool, but what is transmitted in the body
-            (value) is the _id --}}
+        <select name="poolSize" id="pools">
             <option value="25m">25m</option>
             <option value="50m">50m</option>
             <option value="both">Both 25m and 50m</option>
-        
         </select>
 
         <label> Description:
@@ -26,7 +29,7 @@
         </label>
         <br>
         <label> Rating:
-            <input type="number" name="rating" min="1" max="10" />
+            <input type="number" name="rate" min="1" max="10" />
         </label>
         <br>
     <br>

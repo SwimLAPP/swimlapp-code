@@ -28,14 +28,28 @@ router.get("/create", (req, res, next) => {
 
 // POST '/pools/create' route to create a new pool in the DB
 router.post("/create", (req, res, next) => {
-  const { name, location, poolSize, description, rating } = req.body;
+  const { name, address, postalCode, city, poolSize, description, rate } =
+    req.body;
 
-  Pool.create({ name, location, poolSize, description, rating })
-    .then(() =>
-      res.redirect("/pools")
-    )
-    .catch((err) => res.render("pools/pool-create.hbs"));
-  next();
+  const newPoolDetails = {
+    name: name,
+    location: {
+      address: address,
+      postalCode: postalCode,
+      city: city,
+    },
+    poolSize: poolSize,
+    description: description,
+    rating: rate,
+  };
+
+  Pool.create(newPoolDetails)
+    .then(() => res.redirect("/pools"))
+    .catch((err) => {
+      // res.render("pools/pool-create.hbs");
+      console.log("error creating new pool....");
+      next(err);
+    });
 });
 
 // ***** (R)EAD ROUTES *****
