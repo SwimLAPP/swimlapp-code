@@ -1,62 +1,37 @@
 <h1>Add a New Favourite Sports Pool</h1>
 
+
 <form method="post" action="/pools/create">
 
-    <label> Name:
-        <input type="text" name="name" required />
-    </label>
-        <br>
-{{!-- add location --}}
-        <label> Address:
-            <input type="text" name="address"/>
-        </label>
-        <label> Post Code: 
-            <input type="text" name="postalCode" />
-        </label>
-        <label> City: 
-            <input type="text" name="city" required />
-        </label>
-        <br>
-
-        <label for="pools">Available pool size (required)</label>
-        <select name="poolSize" id="pools" required>
+    <div class="mb-3">
+  <label for="pools" class="form-label">Name</label>
+  <input type="text" id="exampleFormControlInput1" placeholder="Name of swimming pool....">
+  <br>
+  <label for="pools" class="form-label">Address</label>
+  <input type="text" id="exampleFormControlInput1" placeholder="Address">
+  <br>
+  <label for="pools" class="form-label">Postal Code</label>
+  <input type="text" id="exampleFormControlInput1" placeholder="Postal Code">
+  <br>
+  <label for="pools" class="form-label">City</label>
+  <input type="text" id="exampleFormControlInput1" placeholder="City">
+  <br>
+  <label for="pools">Available pool size (required)</label>
+        <select name="poolSize" id="pools">
             <option value="25m">25m</option>
             <option value="50m">50m</option>
             <option value="both">Both 25m and 50m</option>
         </select>
-        <br>
 
-        <label> Description:
-            <textarea name="description" cols="30" rows="4"> </textarea>
-        </label>
-        <br>
-        <label> Rating:
-            <input type="number" name="rate" min="1" max="10" />
-        </label>
-        <br>
-    <br>
-    <br>
-        <button type="submit"> Create </button>
-</form>
-
-<form >
-
-    <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Name</label>
-  <input type="text" id="exampleFormControlInput1" placeholder="Name of swimming pool....">
-  <br>
-  <label for="exampleFormControlInput1" class="form-label">Address</label>
-  <input type="text" id="exampleFormControlInput1" placeholder="Address">
-  <br>
-  <label for="exampleFormControlInput1" class="form-label">Postal Code</label>
-  <input type="text" id="exampleFormControlInput1" placeholder="Postal Code">
-  <br>
-  <label for="exampleFormControlInput1" class="form-label">City</label>
-  <input type="text" id="exampleFormControlInput1" placeholder="City">
-  <br>
 </div>
 <div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+  <label for="pools" class="form-label">Description</label>
   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <label> Rating:
+            <input type="number" name="rate" min="1" max="10" />
+        </label>
 </div>
+<button type="submit"> Create </button>
 </form>
+
+
