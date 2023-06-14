@@ -1,27 +1,45 @@
+<header>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-12"> 
 <h1>All Our Swimming Pools</h1>
-
+</div>
+</div>
+</div>
+</header>
 {{#each allPools}}
 <section class="pool-summary">
-    <h2>{{this.name}}</h2>
-    <p>
+            <!-- product pool-->
+          <div  class="container text-center">
+                <div class="row">
+        <div class="product col-12 col-sm-6 col-md-4">
+            <div class="card">
+                <img src="./images/download.jpeg" class="card-img-top" alt="nice pool" />
+    <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    {{!-- <h2>{{this.name}}</h2> --}}
+    <p class="card-text">
         Location: {{this.location.address}}, {{this.location.postalCode}}, {{this.location.city}} <br />
         Pool size: {{this.poolSize}} <br />
         Description: {{this.description}} <br />
         Rating: {{this.rating}} <br />
-
-
-
-        <a href="/pools/{{this._id}}">More details</a>
-        <br>
-        <a href="/pools/{{this._id}}/edit">Edit</a>
-        <br>
-        <a href="/pools/{{this._id}}/delete">Delete</a>
     </p>
+
+    <br>
+    <br> 
+        <a href="/pools/{{this._id}}" class="btn btn-primary">More details</a>
+        <a href="/pools/{{this._id}}/edit" class="btn btn-primary">Edit</a>
+        <a href="/pools/{{this._id}}/delete" class="btn btn-primary">Delete</a>
+
 
     {{!-- <form action="/pools/{{_id}}/delete" method="POST">
         <button>Delete</button> --}}
     {{!-- </form> --}}
-
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </section>
 {{/each}}
 <hr>
