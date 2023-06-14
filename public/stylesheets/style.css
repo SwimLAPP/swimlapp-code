@@ -1,6 +1,7 @@
 body {
   /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
 }
 
 a {
@@ -50,18 +51,20 @@ nav {
 
 #login-form {
   background-image: url(../images/homepageimage.jpg);
-  object-fit: none;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 /* p {
   width: 10cm;
   
 } */
 
-.container{}
+/* .container{}
 
 
 .product{}
 
 .card{}
 
-.card-body {}
+.card-body {} */
