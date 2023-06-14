@@ -1,14 +1,17 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+  /* font: black; */
+  font-size: x-large;
+  font: bold;
+  
 }
 
 h1 {
-  color: 15px;
+  color: red;
 }
 
 nav {
@@ -16,18 +19,43 @@ nav {
   flex-direction: row;
   justify-content: center;
   justify-content: space-around;
-  padding-top: 1rem;
-  margin-bottom: 3rem;
+  /* padding-top: 1rem; */
+  /* margin-bottom: 3rem; */
+  background-color: rgb(186, 228, 240);
+  background-image: url(../images/lightbluewaves.jpg);
+  /* color: black; */
+  font-size: medium ;
 }
 
 .homepage {
-  width: 100%;
-  height: 100%;
-  background-color: rgb(186, 228, 240);
-  /* background-image: url(../images/homepageimage.jpg); */
+  width: auto;
+  height: auto;
+  /* background-color: rgb(186, 228, 240); */
+  background-image: url(../images/lightbluewaves.jpg);
   object-fit: cover;
+  margin: 0px 0px 0px 0px;
+  text-align: center;
 }
 
+.divtext {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  border: 1px solid black;
+  flex-direction: row;
+  justify-content: center;
+  display: inline-block;
+}
+
+#login-form {
+  background-image: url(../images/homepageimage.jpg);
+  object-fit: none;
+}
+/* p {
+  width: 10cm;
+  
+} */
 
 .container{}
 

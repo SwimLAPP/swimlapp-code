@@ -6,13 +6,21 @@
       <input type="text" name="username" placeholder="Your username" />
     </label> --}}
 
-    <label> Email
+    {{!-- <label> Email
       <input type="email" name="email" placeholder="Your email" />
     </label>
 
     <label> Password
       <input type="password" name="password" placeholder="Your password" />
-    </label>
+    </label> --}}
+
+    <div class="divtext">
+    <label>Email address</label>
+    <input type="email" class="form-control" name="email" placeholder="Enter email">
+    {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
 
     <button type="submit">Log In</button>
 
@@ -22,3 +30,5 @@
     {{/if}}
   </form>
 </div>
+
+
