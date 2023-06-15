@@ -16,16 +16,6 @@
   </head>
 
   <body>
-<<<<<<< HEAD
-=======
-    <nav>
-      <a href="/">Home Page</a>
-      <a href="/pools">All Swimming Pools</a>
-      <a href="/pools/50m">50mSwimming Pools</a>
-      <a href="/pools/create">Share a New Pool</a>
-      {{! <a href="/auth/signup">Signup</a>
-  <a href="/auth/login">Login</a> }}
->>>>>>> 40ad931017ad035c18e1b2e2efd61a3320529d50
 
 
     <nav class="navbar" style="background-color: #e3f2fd;">
@@ -37,10 +27,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <a class="nav-link active" aria-current="page" href="/pools">Recommended Swimming Pools</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <a class="nav-link active" aria-current="page" href="/pools">All Swimming Pools</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/pools/create">Add Your Own Pool</a>
+          <a class="nav-link active" aria-current="page" href="/pools/50m">50m Swimming Pools</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/pools/create">Share a New Pool</a>
         </li>
         {{#if currentUser}}
         <form id="logout-form" method="POST" action="/auth/logout">
