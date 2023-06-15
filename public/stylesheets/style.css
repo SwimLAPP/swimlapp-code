@@ -36,12 +36,12 @@ nav {
   opacity: 0,8;
   border-radius: 1rem;
   padding: 2rem;
-  /* background-color: rgb(186, 228, 240); */
-
+  /* background-color: lightblue; */
   object-fit: cover;
   margin: 0px 0px 0px 0px;
   text-align: center;
 }
+
 
 .divtext {
   display:flex;

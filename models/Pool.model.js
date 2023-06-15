@@ -17,6 +17,10 @@ const poolSchema = new Schema(
     },
     description: String,
     rating: Number,
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    }
   },
 
   {
