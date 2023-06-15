@@ -20,7 +20,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET '/pools/create' route to show pool creation form to the user
 router.get("/create", (req, res, next) => {
-  // to render the create form we fetch all poolss from the DB, so we can make the user select which celebrities will be in the cast of the pool
+  // to render the create form we fetch all pools from the DB
   Pool.find()
     .then((allPools) => res.render("pools/pool-create.hbs", { allPools }))
     .catch((err) => next(err));
@@ -61,7 +61,15 @@ router.get("/", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// GET '/pools/:id' route to show details of a specific movie
+//// ***** Read /50m
+// GET '/pools' route to show all 50m pools in a list
+router.get("/50m", (req, res, next) => {
+  Pool.find({ $or: [{ poolSize: "50m" }, { poolSize: "both" }] }) // or poolSize: "both"
+    .then((allPools) => res.render("pools/list-50m.hbs", { allPools }))
+    .catch((err) => next(err));
+});
+
+// GET '/pools/:id' route to show details of a specific pool
 router.get("/:id", (req, res, next) => {
   const { id } = req.params;
 
@@ -70,6 +78,14 @@ router.get("/:id", (req, res, next) => {
     .then((onePool) => res.render("pools/pool-details.hbs", { onePool }))
     .catch((err) => next(err));
 });
+
+//// ***** Read /city
+// GET '/:city' route to show all pools in a list by city
+// router.get("/:city", (req, res, next) => {
+//   Pool.find({ location.city:" })
+//     .then((allPools) => res.render("pools/list-by-city.hbs", { allPools }))
+//     .catch((err) => next(err));
+// });
 
 // ***** UPDATE ROUTES *****
 
@@ -94,7 +110,7 @@ router.post("/:id/edit", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// ***** (D)ELETE ROUTES *****
+// ***** DELETE ROUTES *****
 
 // POST '/movies/:id/delete' route to delete a single movie
 router.post("/:id/delete", (req, res, next) => {
