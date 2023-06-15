@@ -1,0 +1,33 @@
+<div>class="mb-3"
+<h1>List of 50m Sport Pools</h1>
+<br>
+{{#if poolSize === 50m}}
+<div class="col-4">
+    <div class="container text-center">
+        <div class="card">
+            <img src="./images/download.jpeg" class="card-img-top" alt="nice pool" />
+            <div class="card-body">
+                <h5 class="card-title">{{this.name}}</h5>
+                {{!-- <h2>{{this.name}}</h2> --}}
+                <p class="card-text">
+                    Location:
+                    {{this.location.address}},
+                    {{this.location.postalCode}},
+                    {{this.location.city}}
+                    <br />
+                    Pool size:
+                    {{this.poolSize}}
+                    <br />
+                    Rating:
+                    {{this.rating}}
+                    <br />
+                </p>
+{{/if}}
+                <a href="/pools/{{this._id}}" class="btn btn-primary">More details</a>
+                <a href="/pools/{{this._id}}/edit" class="btn btn-primary">Edit</a>
+                <a href="/pools/{{_id}}/delete" class="btn btn-primary">Delete</a>
+
+
+</div>
+
+
