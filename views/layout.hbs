@@ -16,6 +16,7 @@
   </head>
 
   <body>
+<<<<<<< HEAD
     <nav>
       <a href="/">Home Page</a>
       <a href="/pools">All Swimming Pools</a>
@@ -23,15 +24,48 @@
       <a href="/pools/create">Share a New Pool</a>
       {{! <a href="/auth/signup">Signup</a>
   <a href="/auth/login">Login</a> }}
+=======
+>>>>>>> eb3a02d64a3201dbc3da64b74f083539d8c15a42
 
-      {{#if currentUser}}
+
+    <nav class="navbar" style="background-color: #e3f2fd;">
+  <!-- Navbar content -->
+
+<div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <a class="nav-link active" aria-current="page" href="/pools">All Swimming Pools</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/pools/50m">50m Swimming Pools</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/pools/create">Share a New Pool</a>
+        </li>
+        {{#if currentUser}}
         <form id="logout-form" method="POST" action="/auth/logout">
           <button>Logout</button>
         </form>
       {{else}}
-        <a href="/auth/signup">Signup</a>
-        <a href="/auth/login">Login</a>
-      {{/if}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/auth/signup">Sign Up</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/auth/login">Log In</a>
+        </li>
+        {{/if}}
+         </div>
+  </div>
+    
+    {{!-- <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/auth/signup">Sign Up</a></li>
+            <li><a class="dropdown-item" href="/auth/login">Log In</a></li>
+             </ul>
+        </li> --}}
 
     </nav>
     <div class="container">
