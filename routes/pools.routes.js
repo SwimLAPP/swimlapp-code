@@ -27,7 +27,7 @@ router.get("/create", (req, res, next) => {
 });
 
 // POST '/pools/create' route to create a new pool in the DB
-router.post("/create", (req, res, next) => {
+router.post("/create", isLoggedIn, (req, res, next) => {
   const { name, address, postalCode, city, poolSize, description, rate } =
     req.body;
 
@@ -41,6 +41,7 @@ router.post("/create", (req, res, next) => {
     poolSize: poolSize,
     description: description,
     rating: rate,
+    owner: req.session.currentUser._id,
   };
 
   Pool.create(newPoolDetails)
@@ -64,10 +65,15 @@ router.get("/", (req, res, next) => {
 // GET '/pools/:id' route to show details of a specific movie
 router.get("/:id", (req, res, next) => {
   const { id } = req.params;
+  const currentUser = req.session.currentUser 
+
 
   Pool.findById(id)
 
-    .then((onePool) => res.render("pools/pool-details.hbs", { onePool }))
+    .then((onePool) => {
+      const isOwner = onePool.owner.toString() === currentUser._id
+      res.render("pools/pool-details.hbs", { onePool, isOwner })
+    })
     .catch((err) => next(err));
 });
 

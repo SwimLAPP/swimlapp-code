@@ -22,6 +22,18 @@
 <h4>Rating:</h4>
 <p>{{onePool.rating}}</p>
 
+ <form action="/pools">
+              <button type="submit" class="btn btn-primary">Back</button>
+            </form>
+
+            {{#if isOwner}}
+ <form action="/pools/{{onePool._id}}/edit" method="GET">
+              <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+            <form action="/pools/{{onePool._id}}/delete" method="POST">
+              <input type="submit" value="Delete" class="btn btn-primary">
+            </form>
+        {{/if}}
 <hr />
 
-<a href="/pools">Back Sports Pools List</a>
+{{!-- <a href="/pools">Back</a> --}}
