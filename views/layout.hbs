@@ -16,21 +16,42 @@
   </head>
 
   <body>
-    <nav>
-      <a href="/">Home Page</a>
-      <a href="/pools">Recommended Swimming Pools</a>
-      <a href="/pools/create">Add Your Own Pool</a>
-      {{! <a href="/auth/signup">Signup</a>
-  <a href="/auth/login">Login</a> }}
 
-      {{#if currentUser}}
+
+    <nav class="navbar" style="background-color: #e3f2fd;">
+  <!-- Navbar content -->
+
+<div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="nav-link active" aria-current="page" href="/pools">Recommended Swimming Pools</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/pools/create">Add Your Own Pool</a>
+        </li>
+        {{#if currentUser}}
         <form id="logout-form" method="POST" action="/auth/logout">
           <button>Logout</button>
         </form>
       {{else}}
-        <a href="/auth/signup">Signup</a>
-        <a href="/auth/login">Login</a>
-      {{/if}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/auth/signup">Sign Up</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/auth/login">Log In</a>
+        </li>
+        {{/if}}
+         </div>
+  </div>
+    
+    {{!-- <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/auth/signup">Sign Up</a></li>
+            <li><a class="dropdown-item" href="/auth/login">Log In</a></li>
+             </ul>
+        </li> --}}
 
     </nav>
     <div class="container">

@@ -1,20 +1,68 @@
-<div id="form">
-  <h2>Sign Up</h2>
-  <form action="/auth/signup" method="POST">
+<!-- Section: Design Block -->
+<br>
+<br>
+<br>
+<br>
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
+<section class=" text-center text-lg-start">
+  <style>
+    .rounded-t-5 {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
 
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
+    @media (min-width: 992px) {
+      .rounded-tr-lg-0 {
+        border-top-right-radius: 0;
+      }
 
-    <button type="submit">Sign Up</button>
+      .rounded-bl-lg-5 {
+        border-bottom-left-radius: 0.5rem;
+      }
+    }
+  </style>
+  <div class="card mb-3">
+    <div class="row g-0 d-flex align-items-center">
+      {{!-- <div class="col-lg-4 d-none d-lg-flex">
+        <img src="/public/images/homepageimage.jpg" alt="water"
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+      </div> --}}
+      <div class="col-lg-8">
+        <div class="card-body py-5 px-md-5">
 
+          <form action="/auth/signup" method="POST">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="email" name="email" class="form-control" />
+              <label class="form-label" for="email">Please enter a valid email address</label>
+            </div>
 
-    {{#if errorMessage}}
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="password" name="password" class="form-control" />
+              <label class="form-label" for="password">Please enter your password </label>
+            </div>
+
+    
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+
+              <div class="col">
+                <!-- Simple link -->
+                <p>Click <a href="/auth/login">here</a> to login</p>
+              </div>
+            </div>
+
+            
+
+            {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
-  </form>
-</div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

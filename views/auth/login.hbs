@@ -1,34 +1,71 @@
-<div id="login-form">
-  <h2>Log In</h2>
-  <form action="/auth/login" method="POST">
+<!-- Section: Design Block -->
+<br>
+<br>
+<br>
+<br>
 
-    {{!-- <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label> --}}
+<section class=" text-center text-lg-start">
+  <style>
+    .rounded-t-5 {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
 
-    {{!-- <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
+    @media (min-width: 992px) {
+      .rounded-tr-lg-0 {
+        border-top-right-radius: 0;
+      }
 
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label> --}}
+      .rounded-bl-lg-5 {
+        border-bottom-left-radius: 0.5rem;
+      }
+    }
+  </style>
+  <div class="card mb-3">
+    <div class="row g-0 d-flex align-items-center">
+      {{!-- <div class="col-lg-4 d-none d-lg-flex">
+        <img src="/public/images/homepageimage.jpg" alt="water"
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+      </div> --}}
+      <div class="col-lg-8">
+        <div class="card-body py-5 px-md-5">
 
-    <div class="divtext">
-    <label>Email address</label>
-    <input type="email" class="form-control" name="email" placeholder="Enter email">
-    {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
+          <form action="/auth/login" method="POST">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="email" name="email" class="form-control" />
+              <label class="form-label" for="email">Email address</label>
+            </div>
 
-    <button type="submit">Log In</button>
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="password" name="password" class="form-control" />
+              <label class="form-label" for="password">Password</label>
+            </div>
 
+    
 
-    {{#if errorMessage}}
+              <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+              <div class="col">
+                <!-- Simple link -->
+                <p>Don't have an account? Click <a href="/auth/signup">here</a> to sign up!</p>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+
+            {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
-  </form>
-</div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->
 
 
