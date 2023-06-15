@@ -1,3 +1,5 @@
+<div class="details">
+
 <h2>Sport Pool Details and Reviews</h2>
 
 {{!-- <h1>{{name}}</h1>
@@ -22,10 +24,11 @@
 <h4>Rating:</h4>
 <p>{{onePool.rating}}</p>
 
+<div class="d-flex justify-content-center">
+
  <form action="/pools">
               <button type="submit" class="btn btn-primary">Back</button>
             </form>
-
             {{#if isOwner}}
  <form action="/pools/{{onePool._id}}/edit" method="GET">
               <button type="submit" class="btn btn-primary">Edit</button>
@@ -35,5 +38,7 @@
             </form>
         {{/if}}
 <hr />
+</div>
+</div>
 
 {{!-- <a href="/pools">Back</a> --}}
