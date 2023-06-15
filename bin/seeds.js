@@ -56,7 +56,17 @@ const pools = [
       "The Inselpark swimming pool is particularly inviting with its modern ambience. The new building from 2013 is located in the middle of the island park created for the international garden show and opens up a view of well-kept green areas through a generous glass front. The 25-meter multi-purpose pool behind it offers plenty of space for sporty swimming. The courses offered in the course pool, which is equipped with massage jets, ensure even more exercise. Even the little ones can let off steam in the children's pool. A highlight in summer is the south facade that can be opened. It brings an outdoor pool feeling into the bathroom and offers access to the outdoor area with terrace.",
     rating: 8.9,
   },
-
+  {
+    name: "Wildorado",
+    location: {
+      address: "Jahnstrasse 30",
+      postalCode: "15745",
+      city: "Wildau",
+    },
+    poolSize: "25m",
+    description: "Swim, workout, and wellness in one place",
+    rating: 7,
+  },
   {
     name: "Piscine Aquasud",
     location: {
