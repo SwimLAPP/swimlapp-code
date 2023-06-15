@@ -18,12 +18,4 @@ swimLapp makes it easy to plan your swimming sessions and ensure you never miss 
 <h3>Start Making Waves</h3>
 <p>
 Don't waste time and energy searching for the right pool. Let swimLapp be your guide to discovering 25m and 50m pools near you. Dive into a world of convenience, efficiency, and optimized training. Prepare to take your swimming to new heights and achieve your goals with ease.</p>
-<br>
-<br>
 
-
-
-
-
-<h2>Thank you for downloading the app!</h2>
-</div>
