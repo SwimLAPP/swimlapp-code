@@ -52,3 +52,5 @@ You will have to create a .env file and add the following lines:
 Run the app and you are ready to start coding:
 $ npm run dev
 
+
+<img width="1378" alt="swimlapp screenshot" src="https://github.com/SwimLAPP/swimlapp-code/assets/132223724/2b8f45ec-d2fd-4fc0-9160-57164a510b90">
