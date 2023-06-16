@@ -36,6 +36,7 @@ Don't waste time and energy searching for the right pool. Let swimLapp be your g
 <li>Login/logout</li>
 <li>Update and remove pools that only they (the user personally) created.(protected routes)
 </li>
+</ol>
 <h3>Development</h3>
 The implementation is based on the Ironlauncher generator (https://www.npmjs.com/package/ironlauncher), and uses the adaptable host server and MongoDB. 
 After forking and cloning the project, you should install all the dependencies:
