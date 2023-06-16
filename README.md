@@ -13,9 +13,41 @@ Designed specifically for serious athletic swimmers, the swimLapp application fi
   <li>Ensure that you're always just a tap away from your perfect training spot. 
    <li>Keep track of the facilities that best suit your training routine. 
 </ul>
-swimLapp makes it easy to plan your swimming sessions and ensure you never miss out on your preferred locations.</p>
+<p>swimLapp makes it easy to plan your swimming sessions and ensure you never miss out on your preferred locations.</p>
 
 <h3>Start Making Waves</h3>
 <p>
-Don't waste time and energy searching for the right pool. Let swimLapp be your guide to discovering 25m and 50m pools near you. Dive into a world of convenience, efficiency, and optimized training. Prepare to take your swimming to new heights and achieve your goals with ease.</p>
+Don't waste time and energy searching for the right pool. Let swimLapp be your guide to discovering 25m and 50m pools near you. Dive into a world of convenience, efficiency, and optimized training. Prepare to take your swimming to new heights and achieve your goals with ease.
+</p>
+
+<h2>Technical Overview</h2> 
+<p>swimLapp is a full-stack application that includes one model with the full CRUD for the Pool model and one User model. </p>
+<p>In the "product" part of the application, the user can:</p>
+<ol>
+<li>Add new pools
+<li>See the list of all pools, including a list of 50m pools</li> 
+<li>See the details of a specific pool</li>
+<li>Update existing pool</li>
+<li>Delete pool</li>
+</ol>
+<p>The user functionality can:  </p>
+<ol>
+<li>Sign-in/register</li>
+<li>Login/logout</li>
+<li>Update and remove pools that only they (the user personally) created.(protected routes)
+</li>
+<h3>Development</h3>
+The implementation is based on the Ironlauncher generator (https://www.npmjs.com/package/ironlauncher), and uses the adaptable host server and MongoDB. 
+After forking and cloning the project, you should install all the dependencies:
+
+  $ npm install
+
+You will have to create a .env file and add the following lines:
+
+  PORT=3000
+  SECRET_SESSION=<<  your password  >>
+
+
+Run the app and you are ready to start coding:
+$ npm run dev
 
