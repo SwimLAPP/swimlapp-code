@@ -3,8 +3,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url(../images/photo-1568145675395-66a2eda0c6d7.avif);
   background-size: cover;
-  color: white;
+  color:white;
 }
+
+
 
 a {
   /* font: black; */
@@ -35,7 +37,7 @@ nav {
   padding: 2rem;
   background-color: lightblue;
   object-fit: cover;
-  margin: 0px 0px 0px 0px;
+  /* margin: 0px 0px 0px 0px; */
   text-align: center;
 }
 
