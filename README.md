@@ -53,4 +53,10 @@ Run the app and you are ready to start coding:
 $ npm run dev
 
 
+<img width="1387" alt="swimLapp sign-in screenshot" src="https://github.com/SwimLAPP/swimlapp-code/assets/132223724/1e40de39-1488-4918-8574-db03cf0fce90">
+
+<br>
+<br>
+
+
 <img width="1378" alt="swimlapp screenshot" src="https://github.com/SwimLAPP/swimlapp-code/assets/132223724/2b8f45ec-d2fd-4fc0-9160-57164a510b90">
